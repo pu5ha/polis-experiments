@@ -46,12 +46,12 @@
         <div class="how-it-works">
           <div class="how-step">
             <span class="how-step-num">1</span>
-            <span class="how-step-text">Answer 20 quick questions</span>
+            <span class="how-step-text">20 seed questions to start</span>
           </div>
           <div class="how-step-arrow">→</div>
           <div class="how-step">
             <span class="how-step-num">2</span>
-            <span class="how-step-text">Agree, disagree, or pass</span>
+            <span class="how-step-text">Agree, disagree, or pass — stop anytime</span>
           </div>
           <div class="how-step-arrow">→</div>
           <div class="how-step">
@@ -89,7 +89,7 @@
           <div class="terminal-title">evm_discuss.sh --topic="{config.topic}"</div>
         </div>
         <div class="polis-instructions">
-          <span class="comment-marker">#</span> 20 quick questions — agree, disagree, or pass on each one. Add your own if your view isn't represented yet.
+          <span class="comment-marker">#</span> 20 seed questions to start — agree, disagree, or pass, and stop anytime (your votes still count). Add your own if your view isn't represented yet.
         </div>
         <div class='polis' data-conversation_id={config.polisConversationId} data-ucsf="false"></div>
       </div>
