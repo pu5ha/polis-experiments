@@ -2,7 +2,9 @@
 
 Live conversation: [pol.is/9xjdymbbhw](https://pol.is/9xjdymbbhw)
 
-These are the statements actually seeded into the conversation, distilled from the [EIP-8363 "Tapered Issuance & Burn" thread](https://ethereum-magicians.org/t/eip-8363-tapered-issuance-burn/29263) on Ethereum Magicians. They span both sides of the debate — whether to taper issuance, how to protect solo stakers, how urgent the problem is, and how much is still genuinely uncertain — without taking a position themselves.
+These are the statements originally seeded into the conversation, distilled from the [EIP-8363 "Tapered Issuance & Burn" thread](https://ethereum-magicians.org/t/eip-8363-tapered-issuance-burn/29263) on Ethereum Magicians. They span both sides of the debate — whether to taper issuance, how to protect solo stakers, how urgent the problem is, and how much is still genuinely uncertain — without taking a position themselves.
+
+**Note:** some of these have since been removed directly on pol.is (the live set is down to 18 seed statements as of the last edit). This file reflects the original seed list for provenance — pol.is/9xjdymbbhw is the source of truth for what's actually live.
 
 1. Ethereum already has enough staked ETH to make a direct economic attack prohibitively expensive.
 2. Ethereum should continue increasing the amount of ETH securing the network, even if attacks are already very expensive.
