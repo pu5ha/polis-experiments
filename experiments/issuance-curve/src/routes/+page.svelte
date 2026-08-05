@@ -27,17 +27,36 @@
   </div>
 
   <div class="hero">
+    <svg class="hero-curve" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="heroCurveGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#3eddbd" />
+          <stop offset="100%" stop-color="#ff00e1" />
+        </linearGradient>
+      </defs>
+      <path d="M -20,70 C 220,95 480,190 640,290 C 780,340 880,368 1020,372" />
+    </svg>
+
     <div class="container">
       <div class="hero-content">
         <div class="neon-badge">An Ethereum Social Experiment</div>
         <h1>Let's talk about <span class="glitch-text" data-text={config.topic}>{config.topic}</span></h1>
         <div class="description">
-          <p>
-            {config.description}
-          </p>
-          <p>
-            This Polis conversation seeks to find common ground.
-          </p>
+          <p>{config.description}</p>
+        </div>
+        <div class="stat-strip">
+          <div class="stat">
+            <span class="stat-value">1.5<span class="stat-unit">%</span></span>
+            <span class="stat-label">today's issuance curve — yield floor at full saturation</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">50<span class="stat-unit">%</span></span>
+            <span class="stat-label">EIP-8363's proposed curve — staked ratio where net issuance hits zero</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">9</span>
+            <span class="stat-label">distinct positions found in the sourced Ethereum Magicians debate</span>
+          </div>
         </div>
       </div>
     </div>
@@ -50,13 +69,14 @@
         What is {config.topic}?
         <span class="toggle-icon">{expandedSection === 'what' ? '−' : '+'}</span>
       </button>
-      <div class="accordion-content" style="max-height: {expandedSection === 'what' ? '500px' : '0'}">
+      <div class="accordion-content" style="max-height: {expandedSection === 'what' ? '760px' : '0'}">
         <p>{config.whatIs}</p>
         <div class="education-diagram">
-          <img src="{base}/{config.educationDiagramName}" alt="{config.topic} Structure Diagram" />
-          <div class="image-credit">Image source: <a href="{config.imageCreditLink}" target="_blank">{config.imageCreditText}</a></div>
+          <img src="{base}/{config.educationDiagramName}" alt="Chart comparing Ethereum's current issuance curve to EIP-8363's tapered issuance and burn proposal" />
+          <div class="diagram-caption">Today's curve flattens into a yield floor; EIP-8363 tapers it to zero once 50% of supply is staked.</div>
+          <div class="image-credit">Source: <a href="{config.imageCreditLink}" target="_blank">{config.imageCreditText}</a></div>
         </div>
-        <p class="learn-more">Want to learn more? Check out this <a href="{config.learnMoreLink}" target="_blank">{config.learnMoreText}</a>.</p>
+        <p class="learn-more">Want to learn more? Check out the <a href="{config.learnMoreLink}" target="_blank">{config.learnMoreText}</a>.</p>
       </div>
 
       <button class="accordion-button {expandedSection === 'why' ? 'active' : ''}" on:click={() => toggleSection('why')}>
@@ -64,9 +84,19 @@
         Why This Conversation?
         <span class="toggle-icon">{expandedSection === 'why' ? '−' : '+'}</span>
       </button>
-      <div class="accordion-content" style="max-height: {expandedSection === 'why' ? '500px' : '0'}">
+      <div class="accordion-content" style="max-height: {expandedSection === 'why' ? '820px' : '0'}">
         <p>{config.why}</p>
-        <p>This is a v1 experiment created by Ethereum community members. We'll use the results of this experiment to learn how we can promote more productive conversations on Ethereum.</p>
+        <p class="lenses-intro">This conversation is seeded with statements drawn from that forum debate, spanning every major position we found in it:</p>
+        <div class="lens-pills">
+          <span class="lens-pill">Act now</span>
+          <span class="lens-pill">Slow down &amp; study first</span>
+          <span class="lens-pill">Security budget</span>
+          <span class="lens-pill">Solo-staker impact</span>
+          <span class="lens-pill">DeFi &amp; LST ripple effects</span>
+          <span class="lens-pill">Institutional trust</span>
+          <span class="lens-pill">Keep a yield floor</span>
+          <span class="lens-pill">Does the mechanism work?</span>
+        </div>
       </div>
 
       <button class="accordion-button {expandedSection === 'polis' ? 'active' : ''}" on:click={() => toggleSection('polis')}>
@@ -87,16 +117,10 @@
           <span></span>
           <span></span>
         </div>
-        <div class="terminal-title">evm_discuss.sh --topic={config.topic}</div>
+        <div class="terminal-title">evm_discuss.sh --topic="{config.topic}"</div>
       </div>
-      <div class="polis-cta">
-        <div class="polis-cta-content">
-          <span class="polis-cta-icon">💭</span>
-          <div class="polis-cta-text">
-            <h3>Join the Conversation</h3>
-            <p>Vote on statements (agree/disagree/pass) and add your own thoughts to help shape the future of {config.topic}. Should ETH issuance taper to zero as staking grows?</p>
-          </div>
-        </div>
+      <div class="polis-instructions">
+        <span class="comment-marker">#</span> Vote agree, disagree, or pass on each statement below. Add your own if your view isn't represented yet.
       </div>
       <div class='polis' data-conversation_id={config.polisConversationId} data-ucsf="false"></div>
     </div>
@@ -116,7 +140,7 @@
   <footer>
     <div class="container">
       <div class="footer-message-container">
-        <p class="footer-message">This is a v1 experiment created by Ethereum community members. We'd love to hear your thoughts and work together to build more productive conversations on Ethereum. Let's chat!</p>
+        <p class="footer-message">This is a v1 experiment created by Ethereum community members, seeded from the EIP-8363 debate on Ethereum Magicians.</p>
         <p class="pointer">↓</p>
       </div>
       <div class="social-links">
@@ -209,11 +233,29 @@
   /* Hero Section */
   .hero {
     position: relative;
+    overflow: hidden;
     background: linear-gradient(135deg, rgba(41, 20, 76, 0.8), rgba(13, 32, 64, 0.8));
     padding: 80px 0 60px;
     margin-bottom: 40px;
     border-bottom: 1px solid rgba(62, 221, 189, 0.3);
     box-shadow: 0 0 30px rgba(62, 221, 189, 0.2);
+  }
+
+  .hero-curve {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.35;
+    filter: drop-shadow(0 0 12px rgba(62, 221, 189, 0.2));
+  }
+
+  .hero-curve path {
+    fill: none;
+    stroke: url(#heroCurveGradient);
+    stroke-width: 3;
+    stroke-linecap: round;
   }
 
   .hero::before {
@@ -232,6 +274,8 @@
   }
 
   .hero-content {
+    position: relative;
+    z-index: 1;
     max-width: 800px;
   }
 
@@ -304,10 +348,47 @@
 
   .description {
     font-size: 1.1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
     color: rgba(236, 240, 255, 0.8);
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     max-width: 700px;
+  }
+
+  .stat-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-top: 2.25rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid rgba(236, 240, 255, 0.12);
+    max-width: 700px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    min-width: 130px;
+    flex: 1 1 150px;
+  }
+
+  .stat-value {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: #3eddbd;
+    line-height: 1;
+  }
+
+  .stat-unit {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-left: 1px;
+  }
+
+  .stat-label {
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: rgba(236, 240, 255, 0.6);
   }
 
   /* Accordion Section */
@@ -395,6 +476,13 @@
     box-shadow: 0 0 15px rgba(62, 221, 189, 0.2);
   }
 
+  .diagram-caption {
+    font-size: 0.85rem;
+    color: rgba(236, 240, 255, 0.75);
+    margin-top: 0.75rem;
+    font-style: italic;
+  }
+
   .image-credit {
     font-size: 0.8rem;
     color: rgba(236, 240, 255, 0.6);
@@ -422,6 +510,31 @@
 
   .learn-more a:hover {
     text-decoration: underline;
+  }
+
+  .lenses-intro {
+    margin-top: 1.25rem;
+    font-size: 0.95rem;
+    color: rgba(236, 240, 255, 0.75);
+  }
+
+  .lens-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0.75rem 0 1.25rem;
+  }
+
+  .lens-pill {
+    display: inline-block;
+    background: rgba(62, 221, 189, 0.08);
+    border: 1px solid rgba(62, 221, 189, 0.3);
+    color: rgba(236, 240, 255, 0.85);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    padding: 5px 12px;
+    border-radius: 100px;
+    white-space: nowrap;
   }
 
   /* Polis Container */
@@ -483,37 +596,18 @@
     color: rgba(236, 240, 255, 0.7);
   }
 
-  .polis-cta {
-    background: linear-gradient(135deg, rgba(62, 221, 189, 0.1), rgba(62, 221, 189, 0.05));
+  .polis-instructions {
+    background: rgba(10, 15, 30, 0.5);
     border-bottom: 1px solid rgba(62, 221, 189, 0.3);
-    padding: 20px 25px;
+    padding: 14px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: rgba(236, 240, 255, 0.65);
   }
 
-  .polis-cta-content {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .polis-cta-icon {
-    font-size: 2rem;
-  }
-
-  .polis-cta-text {
-    flex: 1;
-  }
-
-  .polis-cta-text h3 {
-    margin: 0;
+  .comment-marker {
     color: #3eddbd;
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-
-  .polis-cta-text p {
-    margin: 5px 0 0;
-    color: rgba(236, 240, 255, 0.8);
-    font-size: 0.95rem;
+    margin-right: 4px;
   }
 
   /* Results Section */
@@ -713,11 +807,21 @@
       font-size: 1rem;
     }
 
+    .stat-strip {
+      gap: 20px;
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+    }
+
+    .stat-value {
+      font-size: 1.6rem;
+    }
+
     .accordion-button {
       padding: 12px 15px;
       font-size: 1rem;
     }
-    
+
     .social-links {
       padding: 0 15px;
     }
