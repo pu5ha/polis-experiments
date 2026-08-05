@@ -10,7 +10,7 @@ const config = {
 			fallback: 'index.html'
 		}),
 		paths: {
-			base: '/polis-experiments/native-rollups'
+			base: '/polis-experiments/issuance-curve'
 		}
 	}
 };

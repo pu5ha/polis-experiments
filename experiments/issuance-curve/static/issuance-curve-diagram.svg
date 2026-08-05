@@ -1,0 +1,70 @@
+<svg viewBox="0 0 820 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="chartTitle chartDesc">
+  <title id="chartTitle">ETH validator yield versus percent of supply staked</title>
+  <desc id="chartDesc">Illustrative chart comparing Ethereum's current issuance curve, which flattens to a yield floor near 1.5%, against EIP-8363's tapered issuance and burn proposal, which drives net yield to zero once 50% of ETH's supply is staked.</desc>
+
+  <rect x="0" y="0" width="820" height="480" rx="10" fill="#10131f" />
+  <rect x="1" y="1" width="818" height="478" rx="9" fill="none" stroke="rgba(62,221,189,0.3)" stroke-width="1.5" />
+
+  <text x="70" y="30" font-family="'JetBrains Mono', monospace" font-size="17" font-weight="700" fill="#ecf0ff">ETH validator yield vs. % of supply staked</text>
+  <text x="70" y="47" font-family="'JetBrains Mono', monospace" font-size="11" fill="rgba(236,240,255,0.55)">Illustrative — based on EIP-8363's proposed mechanism</text>
+
+  <!-- horizontal gridlines + y labels -->
+  <g font-family="'JetBrains Mono', monospace" font-size="10.5" fill="rgba(236,240,255,0.5)">
+    <line x1="70" y1="420.0" x2="790" y2="420.0" stroke="rgba(236,240,255,0.12)" stroke-width="1" />
+    <text x="60" y="423.5" text-anchor="end">0%</text>
+
+    <line x1="70" y1="335.9" x2="790" y2="335.9" stroke="rgba(236,240,255,0.12)" stroke-width="1" />
+    <text x="60" y="339.4" text-anchor="end">0.5%</text>
+
+    <line x1="70" y1="251.8" x2="790" y2="251.8" stroke="rgba(236,240,255,0.12)" stroke-width="1" />
+    <text x="60" y="255.3" text-anchor="end">1.0%</text>
+
+    <line x1="70" y1="167.7" x2="790" y2="167.7" stroke="rgba(236,240,255,0.12)" stroke-width="1" />
+    <text x="60" y="171.2" text-anchor="end">1.5%</text>
+
+    <line x1="70" y1="83.6" x2="790" y2="83.6" stroke="rgba(236,240,255,0.12)" stroke-width="1" />
+    <text x="60" y="87.1" text-anchor="end">2.0%</text>
+  </g>
+
+  <!-- x axis ticks -->
+  <g font-family="'JetBrains Mono', monospace" font-size="10.5" fill="rgba(236,240,255,0.5)">
+    <text x="70" y="438" text-anchor="middle">0%</text>
+    <text x="190" y="438" text-anchor="middle">10%</text>
+    <text x="310" y="438" text-anchor="middle">20%</text>
+    <text x="430" y="438" text-anchor="middle">30%</text>
+    <text x="550" y="438" text-anchor="middle">40%</text>
+    <text x="670" y="438" text-anchor="middle">50%</text>
+    <text x="790" y="438" text-anchor="middle">60%</text>
+  </g>
+
+  <!-- axis lines -->
+  <line x1="70" y1="50" x2="70" y2="420" stroke="rgba(236,240,255,0.3)" stroke-width="1.2" />
+  <line x1="70" y1="420" x2="790" y2="420" stroke="rgba(236,240,255,0.3)" stroke-width="1.2" />
+
+  <!-- axis titles -->
+  <text x="430" y="462" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11.5" fill="rgba(236,240,255,0.7)">% of ETH supply staked</text>
+  <text x="-235" y="26" transform="rotate(-90)" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="11.5" fill="rgba(236,240,255,0.7)">Annual net yield (%)</text>
+
+  <!-- 50% threshold marker -->
+  <line x1="670" y1="50" x2="670" y2="420" stroke="rgba(255,0,225,0.35)" stroke-width="1.3" stroke-dasharray="4 4" />
+  <text x="675" y="63" font-family="'JetBrains Mono', monospace" font-size="10" fill="rgba(255,0,225,0.75)">50% staked →<tspan x="675" dy="12">net issuance = 0</tspan></text>
+
+  <!-- current issuance curve -->
+  <path d="M 70.0,75.2 C 80.0,78.0 110.0,87.0 130.0,92.0 C 150.0,97.1 170.0,101.3 190.0,105.5 C 210.0,109.7 230.0,113.6 250.0,117.3 C 270.0,120.9 290.0,124.6 310.0,127.4 C 330.0,130.2 350.0,131.8 370.0,134.1 C 390.0,136.3 410.0,138.9 430.0,140.8 C 450.0,142.8 470.0,144.2 490.0,145.9 C 510.0,147.5 530.0,149.5 550.0,150.9 C 570.0,152.3 590.0,153.2 610.0,154.3 C 630.0,155.4 650.0,156.7 670.0,157.6 C 690.0,158.6 710.0,159.3 730.0,160.2 C 750.0,161.0 780.0,162.3 790.0,162.7"
+        fill="none" stroke="#3eddbd" stroke-width="3" stroke-linecap="round" />
+  <circle cx="790" cy="162.7" r="4" fill="#3eddbd" />
+
+  <!-- EIP-8363 tapered + burn curve -->
+  <path d="M 70.0,75.2 C 80.0,79.4 110.0,90.6 130.0,100.5 C 150.0,110.3 170.0,122.0 190.0,134.1 C 210.0,146.1 230.0,159.3 250.0,172.8 C 270.0,186.2 290.0,200.8 310.0,214.8 C 330.0,228.8 350.0,243.1 370.0,256.9 C 390.0,270.6 410.0,284.3 430.0,297.2 C 450.0,310.1 470.0,322.7 490.0,334.2 C 510.0,345.7 530.0,356.1 550.0,366.2 C 570.0,376.3 590.0,385.8 610.0,394.8 C 630.0,403.7 650.0,415.8 670.0,420.0 C 690.0,420.0 710.0,420.0 730.0,420.0 C 750.0,420.0 780.0,420.0 790.0,420.0"
+        fill="none" stroke="#ff00e1" stroke-width="3" stroke-linecap="round" />
+  <circle cx="790" cy="420.0" r="4" fill="#ff00e1" />
+
+  <!-- legend -->
+  <g font-family="'JetBrains Mono', monospace" font-size="11.5">
+    <rect x="490" y="60" width="14" height="4" rx="2" fill="#3eddbd" />
+    <text x="510" y="65" fill="rgba(236,240,255,0.85)">Current issuance curve</text>
+
+    <rect x="490" y="80" width="14" height="4" rx="2" fill="#ff00e1" />
+    <text x="510" y="85" fill="rgba(236,240,255,0.85)">EIP-8363 tapered + burn</text>
+  </g>
+</svg>

@@ -94,7 +94,7 @@
           <span class="polis-cta-icon">💭</span>
           <div class="polis-cta-text">
             <h3>Join the Conversation</h3>
-            <p>Vote on statements (agree/disagree/pass) and add your own thoughts to help shape the future of {config.topic}. Should L2s inherit L1 security through native execution?</p>
+            <p>Vote on statements (agree/disagree/pass) and add your own thoughts to help shape the future of {config.topic}. Should ETH issuance taper to zero as staking grows?</p>
           </div>
         </div>
       </div>

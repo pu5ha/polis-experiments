@@ -22,24 +22,17 @@ jobs:
 
       - uses: oven-sh/setup-bun@v2
 
-      - name: Build Native Rollups
-        working-directory: experiments/native-rollups
-        run: |
-          bun install
-          bun run build
-
-      - name: Build EOF
-        working-directory: experiments/eof
+      - name: Build Issuance Curve
+        working-directory: experiments/issuance-curve
         run: |
           bun install
           bun run build
 
       - name: Assemble site
         run: |
-          mkdir -p _site/native-rollups _site/eof
+          mkdir -p _site/issuance-curve
           cp index.html _site/
-          cp -r experiments/native-rollups/build/* _site/native-rollups/
-          cp -r experiments/eof/build/* _site/eof/
+          cp -r experiments/issuance-curve/build/* _site/issuance-curve/
 
       - uses: actions/upload-pages-artifact@v3
         with:

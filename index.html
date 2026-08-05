@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <meta http-equiv="refresh" content="0; url=./issuance-curve/" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Polis Experiments</title>
+  <title>The Issuance Curve — Polis Experiments</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -26,14 +27,9 @@
     .subtitle {
       color: rgba(236, 240, 255, 0.6);
       font-size: 1rem;
-      margin-bottom: 3rem;
-    }
-    .experiments {
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 800px;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      max-width: 500px;
     }
     a.card {
       display: block;
@@ -45,6 +41,7 @@
       color: #ecf0ff;
       transition: all 0.3s ease;
       min-width: 280px;
+      max-width: 440px;
       text-align: center;
     }
     a.card:hover {
@@ -89,24 +86,16 @@
 </head>
 <body>
   <h1><span>Polis</span> Experiments</h1>
-  <p class="subtitle">Ethereum social experiments using Polis</p>
+  <p class="subtitle">Ethereum social experiments using Polis to find common ground on contentious topics.</p>
 
-  <div class="experiments">
-    <a class="card" href="./native-rollups/">
-      <div class="badge">Active</div>
-      <h2>Native Rollups</h2>
-      <p>Should L2s inherit L1 security through native execution? Join the conversation.</p>
-    </a>
-
-    <a class="card" href="./eof/">
-      <div class="badge">Archive</div>
-      <h2>EOF</h2>
-      <p>EVM Object Format — the original Polis experiment on a contentious Ethereum upgrade.</p>
-    </a>
-  </div>
+  <a class="card" href="./issuance-curve/">
+    <div class="badge">Active</div>
+    <h2>The Issuance Curve</h2>
+    <p>Should ETH issuance taper to zero as staking grows? Seeded from the EIP-8363 debate. Join the conversation.</p>
+  </a>
 
   <footer>
-    <a href="https://github.com/dionysuzx/polis-experiments">GitHub</a>
+    <a href="https://github.com/pu5ha/polis-experiments">GitHub</a>
   </footer>
 </body>
 </html>

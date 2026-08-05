@@ -2,12 +2,15 @@
 
 Ethereum social experiments using [Polis](https://compdemocracy.org/Polis/) to find common ground on contentious topics.
 
+Forked from [dionysuzx/polis-experiments](https://github.com/dionysuzx/polis-experiments) and retargeted at the Ethereum issuance-curve debate.
+
 ## Experiments
 
 | Experiment | Status | Polis Link |
 |---|---|---|
-| [Native Rollups](experiments/native-rollups/) | Active | [Join](https://dionysuzx.github.io/polis-experiments/native-rollups/) |
-| [EOF](experiments/eof/) | Archive | [View](https://dionysuzx.github.io/polis-experiments/eof/) |
+| [The Issuance Curve](experiments/issuance-curve/) | Active | [Join](https://pu5ha.github.io/polis-experiments/issuance-curve/) |
+
+The Issuance Curve conversation is seeded from the [EIP-8363 "Tapered Issuance & Burn"](https://ethereum-magicians.org/t/eip-8363-tapered-issuance-burn/29263) debate on Ethereum Magicians — see [`experiments/issuance-curve/SEED_STATEMENTS.md`](experiments/issuance-curve/SEED_STATEMENTS.md) for the curated seed statements and their sourcing.
 
 ## Adding a New Experiment
 
@@ -19,7 +22,7 @@ Ethereum social experiments using [Polis](https://compdemocracy.org/Polis/) to f
 ## Development
 
 ```bash
-cd experiments/native-rollups  # or experiments/eof
+cd experiments/issuance-curve
 bun install
 bun dev
 ```
