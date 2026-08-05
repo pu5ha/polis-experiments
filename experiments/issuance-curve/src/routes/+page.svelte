@@ -53,10 +53,6 @@
             <span class="stat-value">50<span class="stat-unit">%</span></span>
             <span class="stat-label">EIP-8363's proposed curve — staked ratio where net issuance hits zero</span>
           </div>
-          <div class="stat">
-            <span class="stat-value">9</span>
-            <span class="stat-label">distinct positions found in the sourced Ethereum Magicians debate</span>
-          </div>
         </div>
       </div>
     </div>
@@ -307,43 +303,6 @@
     position: relative;
     display: inline-block;
     color: #3eddbd;
-  }
-
-  .glitch-text::before,
-  .glitch-text::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .glitch-text::before {
-    color: #ff00e1;
-    z-index: -1;
-    animation: glitch-animation 3s infinite alternate-reverse;
-  }
-
-  .glitch-text::after {
-    color: #3eddbd;
-    z-index: -2;
-    animation: glitch-animation2 2s infinite alternate-reverse;
-  }
-
-  @keyframes glitch-animation {
-    0%, 100% { transform: translate(0, 0); opacity: 0.8; }
-    20% { transform: translate(-2px, 2px); opacity: 0; }
-    40% { transform: translate(-2px, -2px); opacity: 0.8; }
-    60% { transform: translate(2px, 2px); opacity: 0; }
-    80% { transform: translate(2px, -2px); opacity: 0.8; }
-  }
-
-  @keyframes glitch-animation2 {
-    0%, 100% { transform: translate(0, 0); opacity: 0.8; }
-    25% { transform: translate(2px, -2px); opacity: 0; }
-    50% { transform: translate(-2px, 2px); opacity: 0.8; }
-    75% { transform: translate(-2px, -2px); opacity: 0; }
   }
 
   .description {
