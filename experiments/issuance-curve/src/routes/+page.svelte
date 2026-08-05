@@ -46,12 +46,12 @@
         <div class="how-it-works">
           <div class="how-step">
             <span class="how-step-num">1</span>
-            <span class="how-step-text">Read a statement</span>
+            <span class="how-step-text">Answer 20 quick questions</span>
           </div>
           <div class="how-step-arrow">→</div>
           <div class="how-step">
             <span class="how-step-num">2</span>
-            <span class="how-step-text">Vote: agree, disagree, or pass</span>
+            <span class="how-step-text">Agree, disagree, or pass</span>
           </div>
           <div class="how-step-arrow">→</div>
           <div class="how-step">
@@ -59,6 +59,7 @@
             <span class="how-step-text">See where opinions cluster</span>
           </div>
         </div>
+        <p class="add-your-own-note">Don't see your view in there? Add your own statement — anyone can.</p>
       </div>
     </div>
   </div>
@@ -88,7 +89,7 @@
           <div class="terminal-title">evm_discuss.sh --topic="{config.topic}"</div>
         </div>
         <div class="polis-instructions">
-          <span class="comment-marker">#</span> Vote agree, disagree, or pass on each statement below. Add your own if your view isn't represented yet.
+          <span class="comment-marker">#</span> 20 quick questions — agree, disagree, or pass on each one. Add your own if your view isn't represented yet.
         </div>
         <div class='polis' data-conversation_id={config.polisConversationId} data-ucsf="false"></div>
       </div>
@@ -373,6 +374,13 @@
 
   .how-step-arrow {
     color: rgba(236, 240, 255, 0.35);
+  }
+
+  .add-your-own-note {
+    margin: 0.85rem 0 0;
+    font-size: 0.85rem;
+    color: rgba(236, 240, 255, 0.5);
+    max-width: 700px;
   }
 
   .stat-strip {
