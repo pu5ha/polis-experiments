@@ -41,17 +41,22 @@
       <div class="hero-content">
         <div class="neon-badge">An Ethereum Social Experiment</div>
         <h1>Let's talk about <span class="glitch-text" data-text={config.topic}>{config.topic}</span></h1>
-        <div class="description">
-          <p>{config.description}</p>
-        </div>
-        <div class="stat-strip">
-          <div class="stat">
-            <span class="stat-value">1.5<span class="stat-unit">%</span></span>
-            <span class="stat-label">today's issuance curve — yield floor at full saturation</span>
+        <p class="purpose-line">This uses <strong>Polis</strong> — an open-source opinion-mapping tool — to show where the Ethereum community actually agrees and disagrees on ETH issuance.</p>
+        <p class="context-line">{config.description}</p>
+        <div class="how-it-works">
+          <div class="how-step">
+            <span class="how-step-num">1</span>
+            <span class="how-step-text">Read a statement</span>
           </div>
-          <div class="stat">
-            <span class="stat-value">50<span class="stat-unit">%</span></span>
-            <span class="stat-label">EIP-8363's proposed curve — staked ratio where net issuance hits zero</span>
+          <div class="how-step-arrow">→</div>
+          <div class="how-step">
+            <span class="how-step-num">2</span>
+            <span class="how-step-text">Vote: agree, disagree, or pass</span>
+          </div>
+          <div class="how-step-arrow">→</div>
+          <div class="how-step">
+            <span class="how-step-num">3</span>
+            <span class="how-step-text">See where opinions cluster</span>
           </div>
         </div>
       </div>
@@ -59,66 +64,73 @@
   </div>
 
   <div class="container">
-    <div class="accordion-section">
-      <button class="accordion-button {expandedSection === 'what' ? 'active' : ''}" on:click={() => toggleSection('what')}>
-        <span class="accordion-icon">❓</span>
-        What is {config.topic}?
-        <span class="toggle-icon">{expandedSection === 'what' ? '−' : '+'}</span>
-      </button>
-      <div class="accordion-content" style="max-height: {expandedSection === 'what' ? '760px' : '0'}">
-        <p>{config.whatIs}</p>
-        <div class="education-diagram">
-          <img src="{base}/{config.educationDiagramName}" alt="Chart comparing Ethereum's current issuance curve to EIP-8363's tapered issuance and burn proposal" />
-          <div class="diagram-caption">Today's curve flattens into a yield floor; EIP-8363 tapers it to zero once 50% of supply is staked.</div>
-          <div class="image-credit">Source: <a href="{config.imageCreditLink}" target="_blank">{config.imageCreditText}</a></div>
-        </div>
-        <p class="learn-more">Want to learn more? Check out the <a href="{config.learnMoreLink}" target="_blank">{config.learnMoreText}</a>.</p>
+    <div class="vote-section">
+      <div class="section-label">The Conversation</div>
+      <p class="spectrum-intro">These statements span views including:</p>
+      <div class="lens-pills">
+        <span class="lens-pill">Act now</span>
+        <span class="lens-pill">Slow down &amp; study first</span>
+        <span class="lens-pill">Security budget</span>
+        <span class="lens-pill">Solo-staker impact</span>
+        <span class="lens-pill">DeFi &amp; LST ripple effects</span>
+        <span class="lens-pill">Institutional trust</span>
+        <span class="lens-pill">Keep a yield floor</span>
+        <span class="lens-pill">Does the mechanism work?</span>
       </div>
 
-      <button class="accordion-button {expandedSection === 'why' ? 'active' : ''}" on:click={() => toggleSection('why')}>
-        <span class="accordion-icon">🔍</span>
-        Why This Conversation?
-        <span class="toggle-icon">{expandedSection === 'why' ? '−' : '+'}</span>
-      </button>
-      <div class="accordion-content" style="max-height: {expandedSection === 'why' ? '820px' : '0'}">
-        <p>{config.why}</p>
-        <p class="lenses-intro">This conversation is seeded with statements drawn from that forum debate, spanning every major position we found in it:</p>
-        <div class="lens-pills">
-          <span class="lens-pill">Act now</span>
-          <span class="lens-pill">Slow down &amp; study first</span>
-          <span class="lens-pill">Security budget</span>
-          <span class="lens-pill">Solo-staker impact</span>
-          <span class="lens-pill">DeFi &amp; LST ripple effects</span>
-          <span class="lens-pill">Institutional trust</span>
-          <span class="lens-pill">Keep a yield floor</span>
-          <span class="lens-pill">Does the mechanism work?</span>
+      <div class="polis-container">
+        <div class="terminal-header">
+          <div class="terminal-buttons">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="terminal-title">evm_discuss.sh --topic="{config.topic}"</div>
         </div>
-      </div>
-
-      <button class="accordion-button {expandedSection === 'polis' ? 'active' : ''}" on:click={() => toggleSection('polis')}>
-        <span class="accordion-icon">🗣️</span>
-        How Does Polis Work?
-        <span class="toggle-icon">{expandedSection === 'polis' ? '−' : '+'}</span>
-      </button>
-      <div class="accordion-content" style="max-height: {expandedSection === 'polis' ? '300px' : '0'}">
-        <p>Polis uses AI to identify patterns of agreement across different viewpoints. Your votes and statements help shape the conversation.</p>
-        <p class="learn-more">Want to learn more? Check out the <a href="https://compdemocracy.org/Polis/" target="_blank">official Polis documentation</a>.</p>
+        <div class="polis-instructions">
+          <span class="comment-marker">#</span> Vote agree, disagree, or pass on each statement below. Add your own if your view isn't represented yet.
+        </div>
+        <div class='polis' data-conversation_id={config.polisConversationId} data-ucsf="false"></div>
       </div>
     </div>
 
-    <div class="polis-container">
-      <div class="terminal-header">
-        <div class="terminal-buttons">
-          <span></span>
-          <span></span>
-          <span></span>
+    <div class="background-section">
+      <div class="section-label">Background <span class="section-label-note">— optional context, not required to vote</span></div>
+      <div class="accordion-section">
+        <button class="accordion-button {expandedSection === 'what' ? 'active' : ''}" on:click={() => toggleSection('what')}>
+          <span class="accordion-icon">❓</span>
+          What is {config.topic}?
+          <span class="toggle-icon">{expandedSection === 'what' ? '−' : '+'}</span>
+        </button>
+        <div class="accordion-content" style="max-height: {expandedSection === 'what' ? '900px' : '0'}">
+          <p>{config.whatIs}</p>
+          <div class="stat-strip">
+            <div class="stat">
+              <span class="stat-value">1.5<span class="stat-unit">%</span></span>
+              <span class="stat-label">today's issuance curve — yield floor at full saturation</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">50<span class="stat-unit">%</span></span>
+              <span class="stat-label">EIP-8363's proposed curve — staked ratio where net issuance hits zero</span>
+            </div>
+          </div>
+          <div class="education-diagram">
+            <img src="{base}/{config.educationDiagramName}" alt="Chart comparing Ethereum's current issuance curve to EIP-8363's tapered issuance and burn proposal" />
+            <div class="diagram-caption">Today's curve flattens into a yield floor; EIP-8363 tapers it to zero once 50% of supply is staked.</div>
+            <div class="image-credit">Source: <a href="{config.imageCreditLink}" target="_blank">{config.imageCreditText}</a></div>
+          </div>
+          <p class="learn-more">Want to learn more? Check out the <a href="{config.learnMoreLink}" target="_blank">{config.learnMoreText}</a>.</p>
         </div>
-        <div class="terminal-title">evm_discuss.sh --topic="{config.topic}"</div>
+
+        <button class="accordion-button {expandedSection === 'why' ? 'active' : ''}" on:click={() => toggleSection('why')}>
+          <span class="accordion-icon">🔍</span>
+          Why This Conversation?
+          <span class="toggle-icon">{expandedSection === 'why' ? '−' : '+'}</span>
+        </button>
+        <div class="accordion-content" style="max-height: {expandedSection === 'why' ? '400px' : '0'}">
+          <p>{config.why}</p>
+        </div>
       </div>
-      <div class="polis-instructions">
-        <span class="comment-marker">#</span> Vote agree, disagree, or pass on each statement below. Add your own if your view isn't represented yet.
-      </div>
-      <div class='polis' data-conversation_id={config.polisConversationId} data-ucsf="false"></div>
     </div>
 
     <div class="results-section">
@@ -149,6 +161,8 @@
       </div>
       <div class="github-link">
         <a href="{config.githubRepoUrl}" target="_blank">Edit this site on GitHub</a>
+        <span class="bullet">•</span>
+        <a href="https://compdemocracy.org/Polis/" target="_blank">How Polis works</a>
       </div>
     </div>
   </footer>
@@ -305,22 +319,105 @@
     color: #3eddbd;
   }
 
-  .description {
-    font-size: 1.1rem;
-    margin-bottom: 0;
-    color: rgba(236, 240, 255, 0.8);
+  .purpose-line {
+    font-size: 1.2rem;
+    margin: 0 0 0.6rem;
+    color: rgba(236, 240, 255, 0.95);
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     max-width: 700px;
+  }
+
+  .purpose-line strong {
+    color: #3eddbd;
+  }
+
+  .context-line {
+    font-size: 0.98rem;
+    margin: 0 0 1.75rem;
+    color: rgba(236, 240, 255, 0.65);
+    max-width: 700px;
+  }
+
+  .how-it-works {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    max-width: 700px;
+  }
+
+  .how-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .how-step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(62, 221, 189, 0.4);
+    color: #3eddbd;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  .how-step-text {
+    font-size: 0.9rem;
+    color: rgba(236, 240, 255, 0.85);
+  }
+
+  .how-step-arrow {
+    color: rgba(236, 240, 255, 0.35);
   }
 
   .stat-strip {
     display: flex;
     flex-wrap: wrap;
     gap: 28px;
-    margin-top: 2.25rem;
-    padding-top: 1.75rem;
+    margin: 1.25rem 0 1.5rem;
+    padding-top: 1.25rem;
     border-top: 1px solid rgba(236, 240, 255, 0.12);
     max-width: 700px;
+  }
+
+  /* Vote Section */
+  .vote-section {
+    margin-bottom: 0;
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #3eddbd;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-label-note {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+    color: rgba(236, 240, 255, 0.45);
+    font-size: 0.8rem;
+  }
+
+  .spectrum-intro {
+    font-size: 0.95rem;
+    color: rgba(236, 240, 255, 0.75);
+    margin: 0 0 0.75rem;
+  }
+
+  .background-section {
+    margin-bottom: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(236, 240, 255, 0.1);
   }
 
   .stat {
@@ -471,12 +568,6 @@
     text-decoration: underline;
   }
 
-  .lenses-intro {
-    margin-top: 1.25rem;
-    font-size: 0.95rem;
-    color: rgba(236, 240, 255, 0.75);
-  }
-
   .lens-pills {
     display: flex;
     flex-wrap: wrap;
@@ -498,7 +589,7 @@
 
   /* Polis Container */
   .polis-container {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     background: rgba(15, 20, 35, 0.5);
     border-radius: 8px;
     overflow: hidden;
